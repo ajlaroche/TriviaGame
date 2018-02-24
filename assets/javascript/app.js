@@ -27,6 +27,7 @@ $(document).ready(function () {
     var AnswerFour = "";
     var correctAnswer = "";
 
+    function loadQuestion(){
     randomQuestion = Math.floor(Math.random() * questionNumbers.length);
 
     questionAsk = eval("question" + questionNumbers[randomQuestion] + ".question");
@@ -36,22 +37,23 @@ $(document).ready(function () {
     AnswerFour = eval("question" + questionNumbers[randomQuestion] + ".choiceD");
     correctAnswer = eval("question" + questionNumbers[randomQuestion] + ".Answer");
 
-
-
-    $(".start").on("click", function () {
-        $("#question").text(questionAsk);
+    $("#question").text(questionAsk);
         $("#optionOne").text(AnswerOne);
         $("#optionTwo").text(AnswerTwo);
         $("#optionThree").text(AnswerThree);
         $("#optionFour").text(AnswerFour);
+    }
+
+
+    $(".start").on("click", function () {
+        loadQuestion();
     })
 
     $("#multipleChoice").on("click", function () {
-        console.log(correctAnswer);
-        if ($("#" + correctAnswer).is(":checked")) {
-            console.log("Yes"); //Provide positive feedback here
+         if ($("#" + correctAnswer).is(":checked")) {
+            $("#feedback").text("That's Correct!") //Provide positive feedback here
         } else if ($("input[name='answers']:checked").length) {
-            console.log("All Good"); //Provide negative feedback here
+            $("#feedback").text("Wrong Answer!"); //Provide negative feedback here
         }
     })
 })
