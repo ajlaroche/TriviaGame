@@ -23,21 +23,35 @@
             <button type="button" class="btn btn-primary btn-lg start">Start</button>
         </div>
         <div class="row justify-content-center" id="timeRemaining"></div>
-        <div class="row justify-content-center" id="question"></div>
-        <div class="row justify-content-center" id="multipleChoice">
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optradio">Option 1</label>
+        <div class="row" id="feedbackRow"><span id="feedback"></span></div>
+        <div class="row" id="questionRow"><span id="question"></span></div>
+        <div class="row" id="multipleChoice">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="answers" id="choiceA" value="choiceA">
+                <label class="form-check-label" for="choiceA">
+                    <span id="optionOne"></span>
+                </label>
             </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optradio">Option 2</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="answers" id="choiceB" value="choiceB">
+                <label class="form-check-label" for="choiceB">
+                    <span id="optionTwo"></span>
+                </label>
             </div>
-            <div class="radio disabled">
-                <label>
-                    <input type="radio" name="optradio" disabled>Option 3</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="answers" id="choiceC" value="choiceC">
+                <label class="form-check-label" for="choiceC">
+                    <span id="optionThree"></span>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="answers" id="choiceD" value="choiceD">
+                <label class="form-check-label" for="choiceD">
+                    <span id="optionFour"></span>
+                </label>
             </div>
         </div>
+
     </div>
 
 
