@@ -26,18 +26,39 @@ $(document).ready(function () {
     var AnswerThree = "";
     var AnswerFour = "";
     var correctAnswer = "";
+    var numberCorrect=0;
+    var numberIncorrect=0;
+    var previousQuestions=[];
+    var isDone=false;
 
-    function loadQuestion(){
-    randomQuestion = Math.floor(Math.random() * questionNumbers.length);
+    function randomGenerate(){
+       randomQuestion = Math.floor(Math.random() * questionNumbers.length); 
+    }
+    function generateQuestion(){
+        randomGenerate();
+        for (i=0;i<previousQuestions;i++){
+            if (randomQuestion===previousQuestions[i]){
+                randomGenerate();
+            } else if(previousQuestions.length=questionNumbers.length){
+                isDone=true;
+            }
+            else{
+                previousQuestions.push(randomQuestion);
+            }
+        }
+    }
 
-    questionAsk = eval("question" + questionNumbers[randomQuestion] + ".question");
-    AnswerOne = eval("question" + questionNumbers[randomQuestion] + ".choiceA");
-    AnswerTwo = eval("question" + questionNumbers[randomQuestion] + ".choiceB");
-    AnswerThree = eval("question" + questionNumbers[randomQuestion] + ".choiceC");
-    AnswerFour = eval("question" + questionNumbers[randomQuestion] + ".choiceD");
-    correctAnswer = eval("question" + questionNumbers[randomQuestion] + ".Answer");
+    function loadQuestion() {
+        generateQuestion();
 
-    $("#question").text(questionAsk);
+        questionAsk = eval("question" + questionNumbers[randomQuestion] + ".question");
+        AnswerOne = eval("question" + questionNumbers[randomQuestion] + ".choiceA");
+        AnswerTwo = eval("question" + questionNumbers[randomQuestion] + ".choiceB");
+        AnswerThree = eval("question" + questionNumbers[randomQuestion] + ".choiceC");
+        AnswerFour = eval("question" + questionNumbers[randomQuestion] + ".choiceD");
+        correctAnswer = eval("question" + questionNumbers[randomQuestion] + ".Answer");
+        $("#multipleChoice").css("display", "block");
+        $("#question").text(questionAsk);
         $("#optionOne").text(AnswerOne);
         $("#optionTwo").text(AnswerTwo);
         $("#optionThree").text(AnswerThree);
@@ -50,10 +71,12 @@ $(document).ready(function () {
     })
 
     $("#multipleChoice").on("click", function () {
-         if ($("#" + correctAnswer).is(":checked")) {
+        if ($("#" + correctAnswer).is(":checked")) {
             $("#feedback").text("That's Correct!") //Provide positive feedback here
+            numberCorrect++;
         } else if ($("input[name='answers']:checked").length) {
             $("#feedback").text("Wrong Answer!"); //Provide negative feedback here
+            numberIncorrect++;
         }
     })
 })

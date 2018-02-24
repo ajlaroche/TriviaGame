@@ -27,7 +27,7 @@ h1{
     height: 3rem;
     }
 #multipleChoice{
-    display: block;
+    display: none;
     margin-left: 30%;
 }
 #questionRow, #feedbackRow{
