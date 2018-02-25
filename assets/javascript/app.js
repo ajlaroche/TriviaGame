@@ -18,6 +18,7 @@ $(document).ready(function () {
     }
 
     var questionNumbers = ["One", "Two"];
+    var originalQuestionNumbers = questionNumbers;
     var randomQuestion = 0;
 
     var questionAsk = "";
@@ -26,43 +27,50 @@ $(document).ready(function () {
     var AnswerThree = "";
     var AnswerFour = "";
     var correctAnswer = "";
-    var numberCorrect=0;
-    var numberIncorrect=0;
-    var previousQuestions=[];
-    var isDone=false;
+    var numberCorrect = 0;
+    var numberIncorrect = 0;
+    var previousQuestions = [];
+    var isDone = false;
+    var questionTest;
 
-    function randomGenerate(){
-       randomQuestion = Math.floor(Math.random() * questionNumbers.length); 
+    function randomGenerate() {
+        return randomQuestion = Math.floor(Math.random() * questionNumbers.length);
     }
-    function generateQuestion(){
-        randomGenerate();
-        for (i=0;i<previousQuestions;i++){
-            if (randomQuestion===previousQuestions[i]){
-                randomGenerate();
-            } else if(previousQuestions.length=questionNumbers.length){
-                isDone=true;
-            }
-            else{
-                previousQuestions.push(randomQuestion);
-            }
+    function generateQuestion() {
+
+        while (questionNumbers[questionTest] === undefined) {
+            questionTest = randomGenerate();
         }
+
+
+        previousQuestions.push(questionTest);
+        if (previousQuestions.length === originalQuestionNumbers.length) {
+            isDone = true;
+        }
+        console.log(questionTest);
+        console.log(previousQuestions);
+        console.log(isDone);
+        return questionTest;
     }
 
     function loadQuestion() {
-        generateQuestion();
-
-        questionAsk = eval("question" + questionNumbers[randomQuestion] + ".question");
-        AnswerOne = eval("question" + questionNumbers[randomQuestion] + ".choiceA");
-        AnswerTwo = eval("question" + questionNumbers[randomQuestion] + ".choiceB");
-        AnswerThree = eval("question" + questionNumbers[randomQuestion] + ".choiceC");
-        AnswerFour = eval("question" + questionNumbers[randomQuestion] + ".choiceD");
-        correctAnswer = eval("question" + questionNumbers[randomQuestion] + ".Answer");
+        var selection = generateQuestion();
+        console.log("selection is" + selection);
+        $(".form-check-input").prop("checked", false);
+        questionAsk = eval("question" + questionNumbers[selection] + ".question");
+        AnswerOne = eval("question" + questionNumbers[selection] + ".choiceA");
+        AnswerTwo = eval("question" + questionNumbers[selection] + ".choiceB");
+        AnswerThree = eval("question" + questionNumbers[selection] + ".choiceC");
+        AnswerFour = eval("question" + questionNumbers[selection] + ".choiceD");
+        correctAnswer = eval("question" + questionNumbers[selection] + ".Answer");
         $("#multipleChoice").css("display", "block");
         $("#question").text(questionAsk);
         $("#optionOne").text(AnswerOne);
         $("#optionTwo").text(AnswerTwo);
         $("#optionThree").text(AnswerThree);
         $("#optionFour").text(AnswerFour);
+        delete questionNumbers[selection];
+        console.log(questionNumbers);
     }
 
 
@@ -77,6 +85,11 @@ $(document).ready(function () {
         } else if ($("input[name='answers']:checked").length) {
             $("#feedback").text("Wrong Answer!"); //Provide negative feedback here
             numberIncorrect++;
+        }
+        if (isDone) {
+            $("#feedback").text("GAME OVER");
+        } else {
+            setTimeout(loadQuestion, 3000);
         }
     })
 })
