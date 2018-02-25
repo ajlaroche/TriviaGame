@@ -16,11 +16,115 @@ $(document).ready(function () {
         choiceD: "Tree",
         Answer: "choiceB"
     }
+    var questionThree = {
+        question: "The ulna is a long bone in which part of the body?",
+        choiceA: "Arm",
+        choiceB: "Ear",
+        choiceC: "Leg",
+        choiceD: "Neck",
+        Answer: "choiceA"
+    }
+    var questionFour = {
+        question: "Micky Dolenz, Michael Nesmith, Peter Tork, and Davy Jones were members of which band?",
+        choiceA: "The Animals",
+        choiceB: "The Beatles",
+        choiceC: "The Buggles",
+        choiceD: "The Monkees",
+        Answer: "choiceD"
+    }
+    var questionFive = {
+        question: " What is Lapsang souchong?",
+        choiceA: "A breed of dog",
+        choiceB: "A language",
+        choiceC: "A mountain range",
+        choiceD: "A type of tea",
+        Answer: "choiceD"
+    }
+    var questionSix = {
+        question: " Which country was partitioned by Austria, Russia and Prussia throughout the 1800s?",
+        choiceA: "Findland",
+        choiceB: "Poland",
+        choiceC: "Romania",
+        choiceD: "Switzerland",
+        Answer: "choiceB"
+    }
+    var questionSeven = {
+        question: "What became of Marie Antoinette on 16th October 1793?",
+        choiceA: "She was beheaded",
+        choiceB: "She was deported",
+        choiceC: "She was divorced",
+        choiceD: "She was pardoned",
+        Answer: "choiceA"
+    }
+    var questionEight = {
+        question: "From which country did Belgium achieve independence in 1831?",
+        choiceA: "Denmark",
+        choiceB: "Italy",
+        choiceC: "France",
+        choiceD: "Netherlands",
+        Answer: "choiceD"
+    }
+    var questionNine = {
+        question: "In which field of art is the Italian master Giotto best known?",
+        choiceA: "Architecture",
+        choiceB: "Ballet",
+        choiceC: "Painting",
+        choiceD: "Sculpture",
+        Answer: "choiceC"
+    }
+    var questionTen = {
+        question: "Which future American President was Eisenhower's Vice President?",
+        choiceA: "Gerald Ford",
+        choiceB: "John Kennedy",
+        choiceC: "Lynden Johnson",
+        choiceD: "Richard Nixon",
+        Answer: "choiceD"
+    }
+    var questionEleven = {
+        question: "How many electoral votes did Texas have in the 2004 Presidential elections?",
+        choiceA: "34",
+        choiceB: "44",
+        choiceC: "54",
+        choiceD: "64",
+        Answer: "choiceA"
+    }
+    var questionTwelve = {
+        question: "Which is the only American state not to have two state legislature houses?",
+        choiceA: "Nebraska",
+        choiceB: "Nevada",
+        choiceC: "New Mexico",
+        choiceD: "New York",
+        Answer: "choiceA"
+    }
+    var questionThirteen = {
+        question: "Which country forms the southern shoreline of Lake Victoria?",
+        choiceA: "Kenya",
+        choiceB: "Rwanda",
+        choiceC: "Tanzania",
+        choiceD: "Uganda",
+        Answer: "choiceC"
+    }
+    var questionFourteen = {
+        question: "Of which African country is Yaoundé the capital city?",
+        choiceA: "Burundi",
+        choiceB: "Cameroon",
+        choiceC: "Chad",
+        choiceD: "Mauritania",
+        Answer: "choiceB"
+    }
+    var questionFifteen = {
+        question: "Which African capital city is the nearest to Sicily?",
+        choiceA: "Algiers",
+        choiceB: "Rabat",
+        choiceC: "Tripoli",
+        choiceD: "Tunis",
+        Answer: "choiceD"
+    }
 
-    var questionNumbers = ["One", "Two"];
+    var questionNumbers = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen"];
+
     var originalQuestionNumbers = questionNumbers;
     var randomQuestion = 0;
-
     var questionAsk = "";
     var AnswerOne = "";
     var AnswerTwo = "";
@@ -32,28 +136,30 @@ $(document).ready(function () {
     var previousQuestions = [];
     var isDone = false;
     var questionTest;
+    var gameLength = 5;
+    var stateAnswer = "";
 
     function randomGenerate() {
         return randomQuestion = Math.floor(Math.random() * questionNumbers.length);
     }
+
     function generateQuestion() {
 
         while (questionNumbers[questionTest] === undefined) {
             questionTest = randomGenerate();
         }
 
-
         previousQuestions.push(questionTest);
-        if (previousQuestions.length === originalQuestionNumbers.length) {
+
+        if (previousQuestions.length === gameLength) {
             isDone = true;
         }
-        console.log(questionTest);
-        console.log(previousQuestions);
-        console.log(isDone);
+
         return questionTest;
     }
 
     function loadQuestion() {
+        $("#feedback").empty();
         var selection = generateQuestion();
         console.log("selection is" + selection);
         $(".form-check-input").prop("checked", false);
@@ -63,6 +169,7 @@ $(document).ready(function () {
         AnswerThree = eval("question" + questionNumbers[selection] + ".choiceC");
         AnswerFour = eval("question" + questionNumbers[selection] + ".choiceD");
         correctAnswer = eval("question" + questionNumbers[selection] + ".Answer");
+        stateAnswer = eval("question" + questionNumbers[selection] + "." + correctAnswer);
         $("#multipleChoice").css("display", "block");
         $("#question").text(questionAsk);
         $("#optionOne").text(AnswerOne);
@@ -70,7 +177,7 @@ $(document).ready(function () {
         $("#optionThree").text(AnswerThree);
         $("#optionFour").text(AnswerFour);
         delete questionNumbers[selection];
-        console.log(questionNumbers);
+        console.log(stateAnswer);
     }
 
 
@@ -83,11 +190,15 @@ $(document).ready(function () {
             $("#feedback").text("That's Correct!") //Provide positive feedback here
             numberCorrect++;
         } else if ($("input[name='answers']:checked").length) {
-            $("#feedback").text("Wrong Answer!"); //Provide negative feedback here
+            $("#feedback").text("Wrong! The right Answer is " + stateAnswer); //Provide negative feedback here
             numberIncorrect++;
         }
         if (isDone) {
-            $("#feedback").text("GAME OVER");
+            setTimeout(function () {
+                $("#feedback").text("GAME OVER");
+                $("#question").empty();
+                $("#multipleChoice").css("display", "none");
+            }, 5000);
         } else {
             setTimeout(loadQuestion, 3000);
         }
