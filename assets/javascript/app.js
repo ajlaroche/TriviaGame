@@ -120,10 +120,7 @@ $(document).ready(function () {
         choiceD: "Tunis",
         Answer: "choiceD"
     }
-
     var questionNumbers = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen"];
-
-    var originalQuestionNumbers = questionNumbers;
     var randomQuestion = 0;
     var questionAsk = "";
     var AnswerOne = "";
@@ -138,7 +135,12 @@ $(document).ready(function () {
     var questionTest;
     var gameLength = 5;
     var stateAnswer = "";
+    var timeToAnswer = 25;
+    var timer;
+    var intervalID;
 
+    console.log(questionNumbers);
+    //Game functions
     function randomGenerate() {
         return randomQuestion = Math.floor(Math.random() * questionNumbers.length);
     }
@@ -158,10 +160,27 @@ $(document).ready(function () {
         return questionTest;
     }
 
+    function restart() {
+        numberCorrect = 0;
+        numberIncorrect = 0;
+        questionNumbers = [];
+        questionNumbers = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen"];
+        isDone = false;
+        previousQuestions = [];
+        questionTest = "";
+        loadQuestion();
+        $("#scoringCorrect").empty();
+        $("#scoringIncorrect").empty();
+        console.log(questionNumbers);
+    }
+
     function loadQuestion() {
+        $("#start").hide();
+        $("#restart").hide();
+        $("#topMessage").show();
+        $("#talkToPlayer").text("GOOD LUCK!");
         $("#feedback").empty();
         var selection = generateQuestion();
-        console.log("selection is" + selection);
         $(".form-check-input").prop("checked", false);
         questionAsk = eval("question" + questionNumbers[selection] + ".question");
         AnswerOne = eval("question" + questionNumbers[selection] + ".choiceA");
@@ -178,27 +197,76 @@ $(document).ready(function () {
         $("#optionFour").text(AnswerFour);
         delete questionNumbers[selection];
         console.log(stateAnswer);
+        timer = timeToAnswer;
+        runTimer();
+    }
+
+    function gameOver() {
+        setTimeout(function () {
+            $("#feedback").text("GAME OVER");
+            $("#countdown").empty();
+            $("#question").empty();
+            $("#multipleChoice").hide();
+            $("#start").hide();
+            $("#topMessage").hide();
+            $("#restart").show();
+            $("#scoringCorrect").text("Correct Answers: " + numberCorrect);
+            $("#scoringIncorrect").text("Wrong Answers: " + numberIncorrect);
+        }, 2000);
+    }
+
+    // Timer functions
+    function decrement() {
+        timer--;
+        $("#countdown").html("Time remaining: " + timer);
+
+        if (timer === 0) {
+            stop();
+            $("#countdown").html("Time Up");
+            numberIncorrect++;
+            if (isDone) {
+                gameOver();
+            } else {
+                loadQuestion();
+            }
+        }
+    }
+    function runTimer() {
+        clearInterval(intervalID);
+        intervalID = setInterval(decrement, 1000);
+    }
+    function stop() {
+        clearInterval(intervalID);
     }
 
 
-    $(".start").on("click", function () {
+    // Interactive logic
+    $("#start").on("click", function () {
         loadQuestion();
+    })
+    $("#restart").on("click", function () {
+        restart();
     })
 
     $("#multipleChoice").on("click", function () {
         if ($("#" + correctAnswer).is(":checked")) {
             $("#feedback").text("That's Correct!") //Provide positive feedback here
+            $("#question").empty();
+            $("#multipleChoice").css("display", "none");
+            stop();
+            $("#countdown").empty();
             numberCorrect++;
         } else if ($("input[name='answers']:checked").length) {
             $("#feedback").text("Wrong! The right Answer is " + stateAnswer); //Provide negative feedback here
+            $("#question").empty();
+            $("#multipleChoice").css("display", "none");
+            stop();
+            $("#countdown").empty();
             numberIncorrect++;
         }
         if (isDone) {
-            setTimeout(function () {
-                $("#feedback").text("GAME OVER");
-                $("#question").empty();
-                $("#multipleChoice").css("display", "none");
-            }, 5000);
+            $("#countdown").empty();
+            gameOver();
         } else {
             setTimeout(loadQuestion, 3000);
         }

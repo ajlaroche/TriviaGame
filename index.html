@@ -20,11 +20,19 @@
         </header>
 
         <div class="row justify-content-center" id="headerSpacing">
-            <button type="button" class="btn btn-primary btn-lg start">Start</button>
+            <button type="button" class="btn btn-primary btn-lg newGame" id="start">Start</button>
+            <button type="button" class="btn btn-primary btn-lg newGame" id="restart">New Game</button>
+            <h2 id="topMessage"><span id="talkToPlayer"></span></h2>
         </div>
-        <div class="row justify-content-center" id="timeRemaining"></div>
-        <div class="row" id="feedbackRow"><span id="feedback"></span></div>
-        <div class="row" id="questionRow"><span id="question"></span></div>
+        <div class="row justify-content-center" id="timeRemaining">
+            <span id="countdown"></span>
+        </div>
+        <div class="row justify-content-center" id="feedbackRow">
+            <span id="feedback"></span>
+        </div>
+        <div class="row" id="questionRow">
+            <span id="question"></span>
+        </div>
         <div class="row" id="multipleChoice">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="answers" id="choiceA" value="choiceA">
@@ -50,6 +58,10 @@
                     <span id="optionFour"></span>
                 </label>
             </div>
+        </div>
+        <div class="row justify-content-center" id="gameResults">
+           <div class="row justify-content-center"><span id="scoringCorrect"></span></div> 
+           <div class="row justify-content-center"><span id="scoringIncorrect"></span></div>
         </div>
 
     </div>
