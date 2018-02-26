@@ -6,7 +6,9 @@ $(document).ready(function () {
         choiceB: "Driving",
         choiceC: "Gardining",
         choiceD: "Working on Computer",
-        Answer: "choiceB"
+        Answer: "choiceB",
+        goodAnswer: "https://media.giphy.com/media/mIMsLsQTJzAn6/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/ek1xpFa8JMIFi/giphy.gif"
     }
     var questionTwo = {
         question: "What is a skink?",
@@ -14,7 +16,9 @@ $(document).ready(function () {
         choiceB: "Lizard",
         choiceC: "Small river",
         choiceD: "Tree",
-        Answer: "choiceB"
+        Answer: "choiceB",
+        goodAnswer: "https://media.giphy.com/media/3ohzdIUsikpGv5zyJW/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/26OL6tEMqlEEU/giphy.gif"
     }
     var questionThree = {
         question: "The ulna is a long bone in which part of the body?",
@@ -22,7 +26,9 @@ $(document).ready(function () {
         choiceB: "Ear",
         choiceC: "Leg",
         choiceD: "Neck",
-        Answer: "choiceA"
+        Answer: "choiceA",
+        goodAnswer: "https://media.giphy.com/media/3o7btObApReFdPILwk/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/xTkcELnWz4YdJvszfy/giphy.gif"
     }
     var questionFour = {
         question: "Micky Dolenz, Michael Nesmith, Peter Tork, and Davy Jones were members of which band?",
@@ -30,7 +36,9 @@ $(document).ready(function () {
         choiceB: "The Beatles",
         choiceC: "The Buggles",
         choiceD: "The Monkees",
-        Answer: "choiceD"
+        Answer: "choiceD",
+        goodAnswer: "https://media.giphy.com/media/dchERAZ73GvOE/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/3ohzdMk3uz9WSpdTvW/giphy.gif"
     }
     var questionFive = {
         question: " What is Lapsang souchong?",
@@ -38,7 +46,9 @@ $(document).ready(function () {
         choiceB: "A language",
         choiceC: "A mountain range",
         choiceD: "A type of tea",
-        Answer: "choiceD"
+        Answer: "choiceD",
+        goodAnswer: "https://media.giphy.com/media/3oxHQIr5HjxkJiGj4c/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/vEcyRJ5yysqk/giphy.gif"
     }
     var questionSix = {
         question: " Which country was partitioned by Austria, Russia and Prussia throughout the 1800s?",
@@ -46,7 +56,9 @@ $(document).ready(function () {
         choiceB: "Poland",
         choiceC: "Romania",
         choiceD: "Switzerland",
-        Answer: "choiceB"
+        Answer: "choiceB",
+        goodAnswer: "https://media.giphy.com/media/fZN78ViZo7Iru/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/1BXa2alBjrCXC/giphy.gif"
     }
     var questionSeven = {
         question: "What became of Marie Antoinette on 16th October 1793?",
@@ -54,7 +66,9 @@ $(document).ready(function () {
         choiceB: "She was deported",
         choiceC: "She was divorced",
         choiceD: "She was pardoned",
-        Answer: "choiceA"
+        Answer: "choiceA",
+        goodAnswer: "https://media.giphy.com/media/l4FGEjnLIV0G4yX2E/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/oSIZ0tXDVoLW8/giphy.gif"
     }
     var questionEight = {
         question: "From which country did Belgium achieve independence in 1831?",
@@ -62,7 +76,9 @@ $(document).ready(function () {
         choiceB: "Italy",
         choiceC: "France",
         choiceD: "Netherlands",
-        Answer: "choiceD"
+        Answer: "choiceD",
+        goodAnswer: "https://media.giphy.com/media/zLUgxwOY1lPnW/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/79QDGG3OOJfPO/giphy.gif"
     }
     var questionNine = {
         question: "In which field of art is the Italian master Giotto best known?",
@@ -70,7 +86,9 @@ $(document).ready(function () {
         choiceB: "Ballet",
         choiceC: "Painting",
         choiceD: "Sculpture",
-        Answer: "choiceC"
+        Answer: "choiceC",
+        goodAnswer: "https://media.giphy.com/media/3oz8xHEIi2f0SuKLNS/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/2WxWfiavndgcM/giphy.gif"
     }
     var questionTen = {
         question: "Which future American President was Eisenhower's Vice President?",
@@ -78,7 +96,9 @@ $(document).ready(function () {
         choiceB: "John Kennedy",
         choiceC: "Lynden Johnson",
         choiceD: "Richard Nixon",
-        Answer: "choiceD"
+        Answer: "choiceD",
+        goodAnswer: "https://media.giphy.com/media/ZWQoadIl0Dpks/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/3o6ZtakXco6ZX2T66I/giphy.gif"
     }
     var questionEleven = {
         question: "How many electoral votes did Texas have in the 2004 Presidential elections?",
@@ -86,7 +106,9 @@ $(document).ready(function () {
         choiceB: "44",
         choiceC: "54",
         choiceD: "64",
-        Answer: "choiceA"
+        Answer: "choiceA",
+        goodAnswer: "https://media.giphy.com/media/SWV4S6i79pygM/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/AJXcQO4xjb8FW/giphy.gif"
     }
     var questionTwelve = {
         question: "Which is the only American state not to have two state legislature houses?",
@@ -94,7 +116,9 @@ $(document).ready(function () {
         choiceB: "Nevada",
         choiceC: "New Mexico",
         choiceD: "New York",
-        Answer: "choiceA"
+        Answer: "choiceA",
+        goodAnswer: "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/l2JhKUupdSKPfEgZG/giphy.gif"
     }
     var questionThirteen = {
         question: "Which country forms the southern shoreline of Lake Victoria?",
@@ -102,7 +126,9 @@ $(document).ready(function () {
         choiceB: "Rwanda",
         choiceC: "Tanzania",
         choiceD: "Uganda",
-        Answer: "choiceC"
+        Answer: "choiceC",
+        goodAnswer: "https://media.giphy.com/media/RwkbF5fbgekGk/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/hPjv0yuXh38Ag/giphy.gif"
     }
     var questionFourteen = {
         question: "Of which African country is Yaoundé the capital city?",
@@ -110,7 +136,9 @@ $(document).ready(function () {
         choiceB: "Cameroon",
         choiceC: "Chad",
         choiceD: "Mauritania",
-        Answer: "choiceB"
+        Answer: "choiceB",
+        goodAnswer: "https://media.giphy.com/media/pa37AAGzKXoek/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/d2lcHJTG5Tscg/giphy.gif"
     }
     var questionFifteen = {
         question: "Which African capital city is the nearest to Sicily?",
@@ -118,7 +146,9 @@ $(document).ready(function () {
         choiceB: "Rabat",
         choiceC: "Tripoli",
         choiceD: "Tunis",
-        Answer: "choiceD"
+        Answer: "choiceD",
+        goodAnswer: "https://media.giphy.com/media/l0Iy5Wa8fkAewhfW0/giphy.gif",
+        wrongAnswer: "https://media.giphy.com/media/owiMPjWC77KQU/giphy.gif"
     }
     var questionNumbers = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen"];
     var randomQuestion = 0;
@@ -138,6 +168,9 @@ $(document).ready(function () {
     var timeToAnswer = 25;
     var timer;
     var intervalID;
+    var goodImage;
+    var wrongImage;
+    var gameCount = 0;
 
     console.log(questionNumbers);
     //Game functions
@@ -163,8 +196,10 @@ $(document).ready(function () {
     function restart() {
         numberCorrect = 0;
         numberIncorrect = 0;
-        questionNumbers = [];
-        questionNumbers = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen"];
+        if (gameCount === Math.floor(questionNumbers.length / gameLength)) {
+            questionNumbers = [];
+            questionNumbers = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen"];
+        }
         isDone = false;
         previousQuestions = [];
         questionTest = "";
@@ -180,6 +215,7 @@ $(document).ready(function () {
         $("#topMessage").show();
         $("#talkToPlayer").text("GOOD LUCK!");
         $("#feedback").empty();
+        $("#feedbackGif").hide();
         var selection = generateQuestion();
         $(".form-check-input").prop("checked", false);
         questionAsk = eval("question" + questionNumbers[selection] + ".question");
@@ -188,6 +224,8 @@ $(document).ready(function () {
         AnswerThree = eval("question" + questionNumbers[selection] + ".choiceC");
         AnswerFour = eval("question" + questionNumbers[selection] + ".choiceD");
         correctAnswer = eval("question" + questionNumbers[selection] + ".Answer");
+        goodImage = eval("question" + questionNumbers[selection] + ".goodAnswer");
+        wrongImage = eval("question" + questionNumbers[selection] + ".wrongAnswer");
         stateAnswer = eval("question" + questionNumbers[selection] + "." + correctAnswer);
         $("#multipleChoice").css("display", "block");
         $("#question").text(questionAsk);
@@ -204,6 +242,7 @@ $(document).ready(function () {
     function gameOver() {
         setTimeout(function () {
             $("#feedback").text("GAME OVER");
+            $("#feedbackGif").hide();
             $("#countdown").empty();
             $("#question").empty();
             $("#multipleChoice").hide();
@@ -212,6 +251,7 @@ $(document).ready(function () {
             $("#restart").show();
             $("#scoringCorrect").text("Correct Answers: " + numberCorrect);
             $("#scoringIncorrect").text("Wrong Answers: " + numberIncorrect);
+            gameCount++;
         }, 2000);
     }
 
@@ -253,6 +293,7 @@ $(document).ready(function () {
             $("#feedback").text("That's Correct!") //Provide positive feedback here
             $("#question").empty();
             $("#multipleChoice").css("display", "none");
+            $("#feedbackGif").attr("src", goodImage).show();
             stop();
             $("#countdown").empty();
             numberCorrect++;
@@ -260,6 +301,7 @@ $(document).ready(function () {
             $("#feedback").text("Wrong! The right Answer is " + stateAnswer); //Provide negative feedback here
             $("#question").empty();
             $("#multipleChoice").css("display", "none");
+            $("#feedbackGif").attr("src", wrongImage).show();
             stop();
             $("#countdown").empty();
             numberIncorrect++;
@@ -269,6 +311,14 @@ $(document).ready(function () {
             gameOver();
         } else {
             setTimeout(loadQuestion, 3000);
+        }
+    })
+    $(".form-check").on({
+        mouseenter: function () {
+            $(this).css({ "background-color": "#194769", "color": "#F6F6E9" })
+        },
+        mouseleave: function () {
+            $(this).css({ "background-color": "#F6F6E9", "color": "#194769" })
         }
     })
 })

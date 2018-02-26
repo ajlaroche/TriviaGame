@@ -1,22 +1,28 @@
 body{
     background-image: url("../images/pebbles.jpg");
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #194769;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 .container{
-    margin-left: 10rem;
-    margin-right: 10rem;
-    background-color: #737381;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2%;
+    background-color: #F6F6E9;
     min-height: 20rem;
+    border-color: #194769;
+    border-style: ridge;
+    border-width: 5px;
     }
 h1{
     text-align: center;
     padding: 0.5rem;
     width: 100%;
     margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: 3.5rem;
 }
 #headerRow{
-    background-color: #737381;
+    margin-bottom: 2rem;
         }
 #topMessage{
     display: none;
@@ -29,6 +35,7 @@ h1{
     width: 25rem;
     margin: 0rem;
     height: 3rem;
+    background-color: #194769;
     }
 #restart{
     display: none;
@@ -45,6 +52,21 @@ h1{
 #gameResults{
     display: block;
 }
+#feedbackRow{
+    display: block;
+}
 #feedback{
     min-height: 1rem;
 }
+#feedbackGif{
+    display: none;
+    margin: 2rem;
+}
+#timeRemaining{
+    font-size: 1.5rem;
+    font-weight: 400;
+    min-height: 3rem;
+}
+.form-check{
+    width: 12rem;
+    }
